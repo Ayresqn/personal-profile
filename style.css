@@ -1,17 +1,133 @@
+:root {
+    --primary: #8da99d; /* Soft Sage Green */
+    --accent: #b8c4bb;  /* Muted Mist */
+    --bg-main: #f8f9f8; /* Off-white / Cream */
+    --card-bg: #ffffff; /* Pure White */
+    --text-main: #4a5553; /* Soft Slate Charcoal */
+    --text-dim: #7a8682;  /* Earthy Grey */
+    --nav-bg: rgba(248, 249, 248, 0.9);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-	font-family: Arial, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    line-height: 1.8; /* Increased for better readability */
+    margin: 0;
 }
-h2 {
+
+/* Navbar - Clean and Airy */
+.navbar {
+    background: var(--nav-bg) !important;
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 20px 0;
 }
-	color: #007bff;
-2
+
+.navbar-brand {
+    color: var(--primary) !important;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Uniform Buttons - Minimalist Style */
+.nav-link-btn {
+    color: var(--text-main) !important;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 8px 25px !important;
+    margin: 5px;
+    border: 1px solid var(--accent);
+    border-radius: 50px; /* Rounded for a softer feel */
+    transition: all 0.4s ease;
+    text-align: center;
+    min-width: 130px;
+    display: inline-block;
+}
+
+.nav-link-btn:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #ffffff !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(141, 169, 157, 0.2);
+}
+
+/* Sections - Spacious */
+section {
+    padding: 120px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-title {
+    color: var(--text-main);
+    font-weight: 400; /* Lighter weight for a calmer look */
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--primary);
+    margin: 15px auto 0;
+    opacity: 0.6;
+}
+
+/* Content Cards - Soft Shadows */
+.content-card, .card {
+    background: var(--card-bg);
+    border: none;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 850px;
+    width: 100%;
+    margin: 0 auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03); /* Very subtle shadow */
+}
+
+/* List Styling - Minimalist */
 ul {
-	list-style-type: none;
-	padding: 0;
+    list-style: none;
+    padding: 0;
 }
+
 ul li {
+    background: rgba(141, 169, 157, 0.05);
+    margin-bottom: 15px;
+    padding: 18px 25px;
+    border-radius: 12px;
+    color: var(--text-dim);
+    transition: all 0.3s ease;
 }
-background: #f8f9fa;
-padding: 10px;
-margin: 5px 0;
-border-left: 5px solid #007bff;
+
+ul li:hover {
+    background: rgba(141, 169, 157, 0.1);
+    color: var(--primary);
+    transform: translateX(5px);
+}
+
+/* Primary Action Button (Contact) */
+.btn-primary {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: white !important;
+    border-radius: 50px;
+    padding: 12px 35px;
+}
+
+@media (max-width: 991px) {
+    .nav-link-btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
