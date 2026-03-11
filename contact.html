@@ -3,31 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - My Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Contact Me</title>
+  <link href="https://cdn.jsdelivr.net" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navigation (Same on every page) -->
-  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">MY PORTFOLIO</a>
-      <div class="navbar-nav ms-auto">
-          <a class="nav-link-btn nav-link" href="about.html">About</a>
-          <a class="nav-link-btn nav-link" href="skills.html">Skills</a>
-          <a class="nav-link-btn nav-link" href="education.html">Education</a>
-          <a class="nav-link-btn nav-link" href="contact.html">Contact</a>
-      </div>
-    </div>
-  </nav>
 
-  <main class="container my-5 text-center">
-    <h2 class="section-title">Get In Touch</h2>
-    <div class="content-card mx-auto p-5" style="max-width: 600px;">
-      <p class="mb-4">I am available for projects and collaborations.</p>
-      <!-- mailto: is required for the button to open an email app -->
-      <a href="mailto:Eugenemuskwe@gmail.com" class="btn btn-primary btn-lg px-5 rounded-pill">Email Me Directly</a>
+  <main class="container my-5">
+    <div class="content-card">
+      <h2 class="text-center mb-4">Contact Me</h2>
+      
+      <form name="myForm" onsubmit="return validateForm()">
+        <fieldset>
+          <legend>Contact Info</legend>
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" class="form-control mb-2">
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" class="form-control mb-2">
+
+          <label for="telephone">Telephone:</label>
+          <input type="tel" id="telephone" name="telephone" class="form-control mb-2">
+        </fieldset>
+
+        <fieldset class="mt-4">
+          <legend>Job Positions</legend>
+          <div class="form-check">
+            <input type="checkbox" id="ae" name="position" value="ae" class="form-check-input">
+            <label for="ae" class="form-check-label">Account Executive</label>
+          </div>
+          <!-- Add other checkboxes similarly... -->
+        </fieldset>
+
+        <fieldset class="mt-4">
+          <legend>Willingness to Relocate</legend>
+          <input type="radio" id="relocate-yes" name="relocate" value="yes" class="form-check-input">
+          <label for="relocate-yes" class="form-check-label me-3">Yes</label>
+          
+          <input type="radio" id="relocate-no" name="relocate" value="no" class="form-check-input">
+          <label for="relocate-no" class="form-check-label">No</label>
+        </fieldset>
+
+        <div class="mt-4 text-center">
+          <input type="submit" value="Submit" class="nav-link-btn btn">
+          <input type="reset" value="Reset" class="btn text-muted">
+        </div>
+      </form>
     </div>
   </main>
+
+  <script>
+    function validateForm() {
+      let user = document.forms["myForm"]["username"].value;
+      if (user == "") {
+        alert("Username must be filled out");
+        return false;
+      }
+      return true;
+    }
+  </script>
 </body>
 </html>
