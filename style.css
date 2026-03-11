@@ -16,118 +16,99 @@ body {
     background-color: var(--bg-main);
     color: var(--text-main);
     font-family: 'Inter', 'Segoe UI', sans-serif;
-    line-height: 1.8; /* Increased for better readability */
+    line-height: 1.8;
     margin: 0;
+    overflow-x: hidden;
 }
 
-/* Navbar - Clean and Airy */
+/* Animations */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes borderPulse {
+    0% { border-color: var(--primary); box-shadow: 0 0 0 0px rgba(141, 169, 157, 0.4); }
+    50% { border-color: var(--accent); box-shadow: 0 0 0 10px rgba(141, 169, 157, 0); }
+    100% { border-color: var(--primary); box-shadow: 0 0 0 0px rgba(141, 169, 157, 0); }
+}
+
+/* Navbar */
 .navbar {
     background: var(--nav-bg) !important;
     backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    padding: 20px 0;
+    padding: 15px 0;
+    transition: all 0.3s ease;
 }
 
 .navbar-brand {
     color: var(--primary) !important;
-    font-weight: 600;
-    letter-spacing: 1px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    transition: opacity 0.3s;
 }
 
-/* Uniform Buttons - Minimalist Style */
+.navbar-brand:hover { opacity: 0.8; }
+
+/* Nav Buttons */
 .nav-link-btn {
     color: var(--text-main) !important;
     font-weight: 500;
-    font-size: 0.9rem;
-    padding: 8px 25px !important;
-    margin: 5px;
-    border: 1px solid var(--accent);
-    border-radius: 50px; /* Rounded for a softer feel */
-    transition: all 0.4s ease;
+    font-size: 0.85rem;
+    padding: 8px 22px !important;
+    margin: 0 5px;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     text-align: center;
-    min-width: 130px;
-    display: inline-block;
 }
 
 .nav-link-btn:hover {
     background: var(--primary);
-    border-color: var(--primary);
     color: #ffffff !important;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(141, 169, 157, 0.2);
 }
 
-/* Sections - Spacious */
-section {
-    padding: 120px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.section-title {
-    color: var(--text-main);
-    font-weight: 400; /* Lighter weight for a calmer look */
-    font-size: 2.2rem;
-    margin-bottom: 50px;
-    text-align: center;
-}
-
-.section-title::after {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 2px;
-    background: var(--primary);
-    margin: 15px auto 0;
-    opacity: 0.6;
-}
-
-/* Content Cards - Soft Shadows */
-.content-card, .card {
+/* Main Content Card */
+.content-card {
     background: var(--card-bg);
-    border: none;
-    border-radius: 20px;
-    padding: 40px;
-    max-width: 850px;
-    width: 100%;
-    margin: 0 auto;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03); /* Very subtle shadow */
+    border-radius: 24px;
+    padding: 50px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.03);
+    animation: fadeInUp 0.8s ease-out forwards;
+    border: 1px solid rgba(184, 196, 187, 0.2);
 }
 
-/* List Styling - Minimalist */
-ul {
-    list-style: none;
-    padding: 0;
+/* Profile Image */
+.img-fluid.rounded-circle {
+    border: 4px solid var(--primary) !important;
+    padding: 5px;
+    background: white;
+    animation: borderPulse 3s infinite ease-in-out;
+    transition: transform 0.5s ease;
 }
 
-ul li {
-    background: rgba(141, 169, 157, 0.05);
-    margin-bottom: 15px;
-    padding: 18px 25px;
-    border-radius: 12px;
-    color: var(--text-dim);
-    transition: all 0.3s ease;
+.img-fluid.rounded-circle:hover {
+    transform: scale(1.03) rotate(2deg);
 }
 
-ul li:hover {
-    background: rgba(141, 169, 157, 0.1);
+/* Typography */
+h2 {
+    color: var(--text-main);
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.lead {
     color: var(--primary);
-    transform: translateX(5px);
+    font-weight: 500;
 }
 
-/* Primary Action Button (Contact) */
-.btn-primary {
-    background-color: var(--primary) !important;
-    border-color: var(--primary) !important;
-    color: white !important;
-    border-radius: 50px;
-    padding: 12px 35px;
-}
-
+/* Responsive Fixes */
 @media (max-width: 991px) {
-    .nav-link-btn {
-        width: 100%;
-        margin: 5px 0;
-    }
+    .navbar-nav { padding-top: 20px; }
+    .nav-link-btn { margin: 5px 0; width: 100%; }
+    .content-card { padding: 30px; }
 }
